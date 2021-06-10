@@ -6,6 +6,8 @@ import com.example.quartz.timerservice.SchedulerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PlaygroundService {
     private final SchedulerService scheduler;
@@ -23,5 +25,13 @@ public class PlaygroundService {
         info.setCallbackData("Callback Data Test");
 
         scheduler.schedule(HelloWorldJob.class, info);
+    }
+
+    public List<TimerInfo> getAllRunningTasks(){
+        return scheduler.getAllRunningTimers();
+    }
+
+    public TimerInfo getRunningTimer(String timerId){
+        return scheduler.getRunningTimer(timerId);
     }
 }

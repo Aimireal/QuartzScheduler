@@ -1,9 +1,10 @@
 package com.example.quartz.playground;
 
+import com.example.quartz.info.TimerInfo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/timer")
@@ -21,4 +22,15 @@ public class PlaygroundController {
     public void runHelloWorldJob(){
         service.runHelloWorldJob();
     }
+
+    @GetMapping
+    public List<TimerInfo> getAllRunningTimers(){
+        return service.getAllRunningTasks();
+    }
+
+    @GetMapping("/{timerId}")
+    public TimerInfo getRunningTimer(@PathVariable String timerId){
+        return service.getRunningTimer(timerId);
+    }
+
 }
