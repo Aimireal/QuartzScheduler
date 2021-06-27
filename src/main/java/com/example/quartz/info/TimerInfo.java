@@ -2,6 +2,7 @@ package com.example.quartz.info;
 
 public class TimerInfo {
     private int totalFireCount;
+    private int remainingFirecount;
     private boolean runForever;
     private long repeatIntervalMS;
     private long initialOffsetMS;
@@ -13,6 +14,14 @@ public class TimerInfo {
 
     public void setTotalFireCount(int totalFireCount) {
         this.totalFireCount = totalFireCount;
+    }
+
+    public int getRemainingFirecount(){
+        return remainingFirecount;
+    }
+
+    public void setRemainingFirecount(int remainingFirecount){
+        this.remainingFirecount = remainingFirecount;
     }
 
     public boolean isRunForever() {
