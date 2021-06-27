@@ -21,7 +21,7 @@ public class PlaygroundService {
         final TimerInfo info = new TimerInfo();
         info.setTotalFireCount(5);
         info.setRemainingFirecount(info.getTotalFireCount());
-        info.setRepeatIntervalMS(2000);
+        info.setRepeatIntervalMS(5000);
         info.setInitialOffsetMS(1000);
         info.setCallbackData("Callback Data Test");
 

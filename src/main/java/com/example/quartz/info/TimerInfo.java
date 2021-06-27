@@ -1,6 +1,8 @@
 package com.example.quartz.info;
 
-public class TimerInfo {
+import java.io.Serializable;
+
+public class TimerInfo implements Serializable {
     private int totalFireCount;
     private int remainingFirecount;
     private boolean runForever;

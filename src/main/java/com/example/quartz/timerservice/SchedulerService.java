@@ -76,11 +76,12 @@ public class SchedulerService {
     public void updateTimer(final String timerId, final TimerInfo info){
         try{
             final JobDetail jobDetail = scheduler.getJobDetail(new JobKey(timerId));
-
             if(jobDetail == null){
                 return;
             }
+
             jobDetail.getJobDataMap().put(timerId, info);
+            scheduler.addJob(jobDetail, true, true);
         }catch (SchedulerException e){
             LOG.error(e.getMessage(), e);
         }
